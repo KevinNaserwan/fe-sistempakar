@@ -2,19 +2,21 @@ import React, { useState } from "react";
 
 interface Option {
   key: string;
-  value: string;
+  value: string | number;
 }
 
 interface SelectGroupOneProps {
   TitleText: string;
   CommandText: string;
   options: Option[];
+  onChange: (value: any) => void;
 }
 
 const SelectGroupOne: React.FC<SelectGroupOneProps> = ({
   TitleText,
   CommandText,
   options,
+  onChange,
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isOptionSelected, setIsOptionSelected] = useState<boolean>(false);
@@ -35,6 +37,7 @@ const SelectGroupOne: React.FC<SelectGroupOneProps> = ({
           onChange={(e) => {
             setSelectedOption(e.target.value);
             changeTextColor();
+            onChange(e.target.value); // Call the onChange callback with the selected value
           }}
           className={`relative z-20 w-full appearance-none rounded border border-stroke bg-transparent px-5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary ${
             isOptionSelected ? "text-black dark:text-white" : ""
