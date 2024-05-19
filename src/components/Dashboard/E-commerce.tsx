@@ -99,7 +99,11 @@ const ECommerce: React.FC = () => {
           </div>
         );
       default:
-        return null;
+        return (
+          <div className="my-10 text-center">
+            <p className="text-gray-500 text-lg font-bold">{response.rekomendasi}</p>
+          </div>
+        );
     }
   };
 
