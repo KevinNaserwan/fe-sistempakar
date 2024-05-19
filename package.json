@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.3",
     "apexcharts": "^3.45.2",
     "axios": "^1.6.8",
     "flatpickr": "^4.6.13",
